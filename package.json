@@ -1,0 +1,42 @@
+{
+  "name": "testetecnico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server",
+    "drop": "npx sequelize-cli db:drop",
+    "create": "npx sequelize-cli db:create",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "engage:prod": "npm run drop && npm run create && npm run migrate && npm run dev",
+    "engage": "npm run create && npm run migrate && npm run seed && npm run dev",
+    "start": "npm run engage:prod",
+    "test": "nyc mocha src/tests/**/*.test.js --exit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "http-status-codes": "^2.2.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0",
+    "sequelize-cli": "^6.4.1",
+    "sequelize-test-helpers": "^1.4.2",
+    "sinon": "^14.0.0"
+  }
+}
